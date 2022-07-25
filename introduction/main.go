@@ -3,13 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
 func main() {
-	MakeRequest()
-}
 
 	url := "https://api-football-v1.p.rapidapi.com/v3/timezone"
 
@@ -23,10 +20,7 @@ func main() {
 	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
 
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	fmt.Println(res)
+	fmt.Println(string(body))
 
-	log.Println(string(body))
 }
